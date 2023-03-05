@@ -86,7 +86,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 button.image = NSImage(named:NSImage.Name("Chin5"))
             }
         })
-        print(LaunchAtLogin.isEnabled)
     }
 }
 #endif
