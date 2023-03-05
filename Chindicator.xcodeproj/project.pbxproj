@@ -14,6 +14,7 @@
 		9E0ED44B29B3844D009D69A1 /* ChindicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0ED44A29B3844D009D69A1 /* ChindicatorTests.swift */; };
 		9E0ED45529B3844D009D69A1 /* ChindicatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0ED45429B3844D009D69A1 /* ChindicatorUITests.swift */; };
 		9E0ED45729B3844D009D69A1 /* ChindicatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0ED45629B3844D009D69A1 /* ChindicatorUITestsLaunchTests.swift */; };
+		9EF0561829B4E5D9002C8719 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF0561729B4E5D9002C8719 /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9E2BC38D29B4D9FE00AA9193 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9E0ED43529B3844B009D69A1 /* Chindicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chindicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0ED43829B3844B009D69A1 /* ChindicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChindicatorApp.swift; sourceTree = "<group>"; };
@@ -45,6 +59,7 @@
 		9E0ED45029B3844D009D69A1 /* ChindicatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChindicatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0ED45429B3844D009D69A1 /* ChindicatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChindicatorUITests.swift; sourceTree = "<group>"; };
 		9E0ED45629B3844D009D69A1 /* ChindicatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChindicatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9E2BC38A29B4D9FE00AA9193 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Chindicator/Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF0561829B4E5D9002C8719 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +95,7 @@
 				9E0ED44929B3844D009D69A1 /* ChindicatorTests */,
 				9E0ED45329B3844D009D69A1 /* ChindicatorUITests */,
 				9E0ED43629B3844B009D69A1 /* Products */,
+				9E2BC38929B4D9FD00AA9193 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +146,14 @@
 			path = ChindicatorUITests;
 			sourceTree = "<group>";
 		};
+		9E2BC38929B4D9FD00AA9193 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E2BC38A29B4D9FE00AA9193 /* LaunchAtLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,12 +164,16 @@
 				9E0ED43129B3844B009D69A1 /* Sources */,
 				9E0ED43229B3844B009D69A1 /* Frameworks */,
 				9E0ED43329B3844B009D69A1 /* Resources */,
+				9E2BC38D29B4D9FE00AA9193 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Chindicator;
+			packageProductDependencies = (
+				9EF0561729B4E5D9002C8719 /* LaunchAtLogin */,
+			);
 			productName = Chindicator;
 			productReference = 9E0ED43529B3844B009D69A1 /* Chindicator.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 9E0ED42C29B3844B009D69A1;
+			packageReferences = (
+				9EF0561629B4E5D9002C8719 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = 9E0ED43629B3844B009D69A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -418,6 +450,10 @@
 				DEVELOPMENT_TEAM = 7P9KHD7SC3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Chindicator/Carthage/Build/Mac",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -456,6 +492,10 @@
 				DEVELOPMENT_TEAM = 7P9KHD7SC3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Chindicator/Carthage/Build/Mac",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -612,6 +652,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9EF0561629B4E5D9002C8719 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9EF0561729B4E5D9002C8719 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EF0561629B4E5D9002C8719 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9E0ED42D29B3844B009D69A1 /* Project object */;
 }

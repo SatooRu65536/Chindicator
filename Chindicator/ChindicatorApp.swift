@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreWLAN
+import LaunchAtLogin
 
 @main
 struct ChindicatorApp: App {
@@ -21,13 +22,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(self)
     }
     
-    @objc func openPreferencesWindow() {
+    @objc func enableLaunchAtLogin() {
+        LaunchAtLogin.isEnabled = true
+    }
+    
+    @objc func disableLaunchAtLogin() {
+        LaunchAtLogin.isEnabled = false
     }
     
     @objc func showPopover(_ sender: NSStatusBarButton) {
         guard let event = NSApp.currentEvent else { return }
         if event.type == NSEvent.EventType.leftMouseUp {
             let menu = NSMenu()
+            
+            menu.addItem(
+                withTitle: NSLocalizedString("自動起動 ON", comment: "自動起動ON"),
+                action: #selector(enableLaunchAtLogin),
+                keyEquivalent: ""
+            )
+            
+            menu.addItem(
+                withTitle: NSLocalizedString("自動起動 OFF", comment: "自動起動OFF"),
+                action: #selector(disableLaunchAtLogin),
+                keyEquivalent: ""
+            )
             
             menu.addItem(
                 withTitle: NSLocalizedString("Quit app", comment: "Quit app"),
@@ -68,6 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 button.image = NSImage(named:NSImage.Name("Chin5"))
             }
         })
+        print(LaunchAtLogin.isEnabled)
     }
 }
 #endif
